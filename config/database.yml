@@ -50,5 +50,5 @@ test:
 production:
   <<: *default
   database: blogProject
-  username: blogProject
+  username: phpmyadmin
   password: <%= ENV['BLOGPROJECT_DATABASE_PASSWORD'] %>

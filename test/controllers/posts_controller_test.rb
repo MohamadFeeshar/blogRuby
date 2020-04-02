@@ -31,8 +31,8 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get destory" do
-    get posts_destory_url
+  test "should get destroy" do
+    get posts_destroy_url
     assert_response :success
   end
 

@@ -1,2 +1,28 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<h1 ><%= @post.title %></h1>
+<strong>Content:</strong>
+<p><%= @post.content %></p> 
+<%= form_tag(comments_path(id=@post.id), method: "post") do %>
+    <div class="form-group">
+        <%= text_area_tag(:content, nil, rows: "3", style:"resize: none;", class: "form-control") %>
+    </div>
+    <%= submit_tag "Comment", class: "btn btn-lg btn-primary float-right"%>
+    <%= link_to 'back', :posts,  class: "btn btn-lg btn-info"%>    
+    
+        
+<% end %>
+
+
+<br>
+<div class="container">
+    <div class="form-group">
+    <% @post.comments.each do |comment| %>
+        <div class="card">
+            <div class="card-body">
+                <p class="card-text"><%= comment.content %></p>
+                <%= link_to 'delete', comment, method: :delete, class:"btn btn-lg btn-danger" %>
+            </div>
+        </div>
+        <br>
+    <% end %>   
+    </div>
+</div>

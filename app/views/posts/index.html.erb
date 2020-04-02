@@ -4,6 +4,22 @@
     <h1>Welcome to the blog</h1>
     <p class="lead text-justify">You can post here</p>
     <a class="btn btn-dark" href="/posts/new" role="button">Post</a>
-
   </div>
+</div>
+
+<br>
+<div class="row">
+  <% @posts.each do |post| %>
+    <div class="card col-ms-6" style="margin-right:10px;">
+      <div class="card-body">
+        <p class="card-title"><%=post.title%> </p>
+        <p class="card-text"> <%=post.content%> </p>
+        <p class="card-text"> <%=post.id%> </p>
+        <p class="card-subtitle mb-2 text-muted"><%= post.updated_at %></p>
+        <%= link_to 'show', post, class:"btn btn-lg btn-success"%>
+        <%= link_to 'update', edit_post_path(post), class:"btn btn-lg btn-warning" %>
+        <%= link_to 'delete', post  , method: :delete , class:"btn btn-lg btn-danger"%>
+      </div>
+    </div>
+  <% end %>
 </div>
